@@ -13,6 +13,10 @@ def test_another():
     assert 1 == 1
 
 
+def test_another_faild():
+    assert 1 == 2
+
+
 @pytest.mark.dev
 @pytest.mark.parametrize('first_value, second_value, result', [
     (1, 2, 3),
