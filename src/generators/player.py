@@ -28,5 +28,9 @@ class Player:
             }
         return self
 
+    def update_inner_value(self, keys, value):
+        self.result[keys] = value
+        return self
+
     def build(self):
         return self.result

@@ -1,4 +1,5 @@
 import pytest
+from src.generators.player_localize import PlayesrLocalize
 
 
 @pytest.mark.parametrize('status', [
@@ -12,6 +13,11 @@ import pytest
 ])
 def test_player(status, balance, get_player_generator):
     print(get_player_generator.set_status(status).set_balance(balance).build())
+
+
+def test_player_second(get_player_generator):
+    object_to_send = get_player_generator.update_inner_value('localize', PlayesrLocalize('fr_FR').set_number(15).build()).build()
+    print(object_to_send)
 
 
 @pytest.mark.parametrize('delete_key', [
