@@ -1,6 +1,8 @@
 from src.baseclasses.response import Response
 from src.schemas.user import User
 import pytest
+from src.schemas.computer import Computer
+from computer_json import computer
 
 
 def test_getting_users(get_users):
@@ -26,3 +28,8 @@ def test_another_faild():
 ])
 def test_calculate(first_value, second_value, result, calculate):
     assert calculate(first_value, second_value) == result
+
+
+def test_pydantic_object():
+    comp = Computer.parse_obj(computer)
+    print(comp.detailed_info.owners)
